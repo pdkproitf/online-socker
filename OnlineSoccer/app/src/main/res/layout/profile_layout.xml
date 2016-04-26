@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/header_cover_image"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/side_bar" />
+
+        <ImageButton
+            android:id="@+id/imgProfile"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/profile_circular_border_imageview"
+            android:elevation="5dp"
+            android:padding="20dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_action_user_add"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true" />
+
+        <ImageView
+            android:id="@+id/btnUpdate"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_marginTop="60dp"
+            android:layout_marginLeft="50dp"
+            android:elevation="5dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/icon_setting"
+            android:layout_alignParentTop="true" />
+
+        <ImageView
+            android:id="@+id/user_profile_notification"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_marginTop="61dp"
+            android:layout_marginLeft="277dp"
+            android:elevation="5dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/icon_notification"
+            android:layout_alignParentTop="true" />
+
+        <TextView
+            android:id="@+id/tvUser"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="136dp"
+            android:layout_centerHorizontal="true"
+            android:text="User"
+            android:textColor="#fff"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+        <TextView
+            android:id="@+id/tvMail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ngocsonitbk@gmail.com"
+            android:textColor="#fff"
+            android:textSize="16sp"
+            android:layout_below="@+id/tvUser"
+            android:layout_centerHorizontal="true" />
+
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="200dp"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="1">
+
+                <TableLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:layout_width="92dp"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="5dp"
+                            android:background="#fff"
+                            android:clickable="false"
+                            android:elevation="4dp"
+                            android:padding="20dp"
+                            android:text="Name" />
+
+                        <EditText
+                            android:layout_width="270dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="24.15"
+                            android:id="@+id/edtName" />
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:layout_width="92dp"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="5dp"
+                            android:layout_marginBottom="3dp"
+                            android:layout_marginTop="3dp"
+                            android:background="#fff"
+                            android:clickable="false"
+                            android:elevation="4dp"
+                            android:padding="20dp"
+                            android:text="Email" />
+
+                        <EditText
+                            android:layout_width="270dp"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/edtMail"
+                            android:editable="false" />
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:layout_width="92dp"
+                            android:layout_height="70dp"
+                            android:layout_margin="5dp"
+                            android:background="#fff"
+                            android:clickable="false"
+                            android:elevation="4dp"
+                            android:padding="20dp"
+                            android:text="Phone Number:" />
+
+                        <EditText
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/edtPhone" />
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:layout_width="92dp"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="5dp"
+                            android:layout_marginBottom="3dp"
+                            android:layout_marginTop="3dp"
+                            android:background="#fff"
+                            android:clickable="false"
+                            android:elevation="4dp"
+                            android:padding="20dp"
+                            android:text="Date" />
+
+                        <EditText
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/edtDate" />
+                    </TableRow>
+
+                </TableLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</RelativeLayout>
