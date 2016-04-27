@@ -1,15 +1,23 @@
 package com.example.pc.onlinesoccer.MainScreen.Match;
 
-import java.util.Date;
-
 /**
  * Created by PDKPRO on 27/04/2016.
  */
 public class Matchs {
-    private String id, field_id,host_id;
+    private String id, field_id,host_id,startTime,endTime;
     private int maxPlayer,status;
-    private Date startTime,endTime;
     private boolean verified;
+
+    public Matchs(String id, String field_id, String host_id, int maxPlayer, int status, String startTime, String endTime, boolean verified) {
+        this.id = id;
+        this.field_id = field_id;
+        this.host_id = host_id;
+        this.maxPlayer = maxPlayer;
+        this.status = status;
+        this.startTime = startTime;
+        this.endTime = endTime;
+        this.verified = verified;
+    }
 
     public String getId() {
         return id;
@@ -51,19 +59,19 @@ public class Matchs {
         this.maxPlayer = maxPlayer;
     }
 
-    public Date getStartTime() {
+    public String getStartTime() {
         return startTime;
     }
 
-    public void setStartTime(Date startTime) {
+    public void setStartTime(String startTime) {
         this.startTime = startTime;
     }
 
-    public Date getEndTime() {
+    public String getEndTime() {
         return endTime;
     }
 
-    public void setEndTime(Date endTime) {
+    public void setEndTime(String endTime) {
         this.endTime = endTime;
     }
 

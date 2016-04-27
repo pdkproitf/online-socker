@@ -48,7 +48,7 @@ public class ProfileFragment extends Fragment{
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         final View view = inflater.inflate(R.layout.profile_layout, container, false);
-        root = new Firebase("https://soccernetword.firebaseio.com/Users/"+this.getArguments().get("uid").toString());
+        root = new Firebase("https://soccernetword.firebaseio.com/Profiles/"+this.getArguments().get("uid").toString());
 
         createComponet(view);
         actionButton();
@@ -56,6 +56,7 @@ public class ProfileFragment extends Fragment{
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
                 handlerDataFireBase(dataSnapshot);
+                //Toast.makeText(getContext(),dataSnapshot.toString(),Toast.LENGTH_LONG).show();
             }
 
             @Override
