@@ -10,7 +10,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.pc.onlinesoccer.ObjectDetails.Profile;
+import com.example.pc.onlinesoccer.MainScreen.Profile.Users;
 import com.example.pc.onlinesoccer.R;
 import com.firebase.client.Firebase;
 import com.firebase.client.FirebaseError;
@@ -90,8 +90,8 @@ public class RegisterActivity extends AppCompatActivity {
     }
     private void createProfile(String uid,String mail){
         Firebase.setAndroidContext(this);
-        Firebase root = new Firebase("https://soccernetword.firebaseio.com/Profiles");
-        Profile profile = new Profile("noName",mail,"noAge","noImage","noPhone");
+        Firebase root = new Firebase("https://soccernetword.firebaseio.com/Users");
+        Users profile = new Users("noName",mail,"noAge","noImage","noPhone");
         root.child(uid).setValue(profile);
     }
 }

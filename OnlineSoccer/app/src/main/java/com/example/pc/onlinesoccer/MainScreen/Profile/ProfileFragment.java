@@ -1,4 +1,4 @@
-package com.example.pc.onlinesoccer.MainScreen;
+package com.example.pc.onlinesoccer.MainScreen.Profile;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -19,7 +19,6 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.pc.onlinesoccer.ObjectDetails.Profile;
 import com.example.pc.onlinesoccer.R;
 import com.firebase.client.ChildEventListener;
 import com.firebase.client.DataSnapshot;
@@ -42,14 +41,14 @@ public class ProfileFragment extends Fragment{
     private Button btnPassword;
     private Firebase root;
     private ArrayList<String> list;
-    private Profile profile;
+    private Users profile;
     private static int SELECT_PICTURE   = 1;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         final View view = inflater.inflate(R.layout.profile_layout, container, false);
-        root = new Firebase("https://soccernetword.firebaseio.com/Profiles/"+this.getArguments().get("uid").toString());
+        root = new Firebase("https://soccernetword.firebaseio.com/Users/"+this.getArguments().get("uid").toString());
 
         createComponet(view);
         actionButton();
@@ -117,7 +116,7 @@ public class ProfileFragment extends Fragment{
                 byte[] manHinh = ImageView_To_Byte(imgProfile);
                 String chuoi = Base64.encodeToString(manHinh, Base64.DEFAULT);
 
-                Profile p = new Profile(edtName.getText().toString(), edtMail.getText().toString(), edtDate.getText().toString(), chuoi,edtPhone.getText().toString());
+                Users p = new Users(edtName.getText().toString(), edtMail.getText().toString(), edtDate.getText().toString(), chuoi,edtPhone.getText().toString());
                 root.setValue(p);
             }
         });
@@ -179,7 +178,7 @@ public class ProfileFragment extends Fragment{
 
     private void createComponet(View view){
         list = new ArrayList<>();
-        profile = new Profile();
+        profile = new Users();
         edtName = (EditText) view.findViewById(R.id.edtName);
         edtMail = (EditText) view.findViewById(R.id.edtMail);
         edtDate = (EditText) view.findViewById(R.id.edtDate);

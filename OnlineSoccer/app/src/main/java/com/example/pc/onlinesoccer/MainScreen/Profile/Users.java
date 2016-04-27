@@ -1,14 +1,14 @@
-package com.example.pc.onlinesoccer.ObjectDetails;
+package com.example.pc.onlinesoccer.MainScreen.Profile;
 
 /**
  * Created by PDKPRO on 22/04/2016.
  */
-public class Profile {
+public class Users {
     private String name,mail,date,imageStr,phone;
-    public Profile() {
+    public Users() {
     }
 
-    public Profile(String name, String mail, String date, String imageStr,String phone) {
+    public Users(String name, String mail, String date, String imageStr, String phone) {
         this.name = name;
         this.mail = mail;
         this.date = date;
