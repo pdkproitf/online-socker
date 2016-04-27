@@ -1,4 +1,4 @@
-package com.example.pc.onlinesoccer.MainScreen;
+package com.example.pc.onlinesoccer.MainScreen.Match;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
