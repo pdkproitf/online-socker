@@ -8,7 +8,9 @@ public class Matchs {
     private int maxPlayer,status;
     private boolean verified;
 
-    public Matchs(String id, String field_id, String host_id, int maxPlayer, int status, String startTime, String endTime, boolean verified) {
+    public Matchs(String id, String field_id, String host_id,
+                  int maxPlayer, int status, String startTime
+                , String endTime, boolean verified) {
         this.id = id;
         this.field_id = field_id;
         this.host_id = host_id;

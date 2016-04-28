@@ -5,16 +5,18 @@
     android:layout_marginTop="16dp"
     android:layout_marginLeft="16dp"
     android:layout_marginRight="16dp"
+    android:padding="10dp"
     android:orientation="horizontal"
     android:weightSum="1">
 
     <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:background="@color/white">
 
         <ImageView
             android:layout_width="76dp"
-            android:layout_height="140dp"
+            android:layout_height="150dp"
             android:layout_marginRight="10dp"
             android:src="@drawable/logo"
             />
@@ -22,7 +24,7 @@
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="wrap_content"
-            android:layout_height="140dp">
+            android:layout_height="150dp">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -53,50 +55,50 @@
                 android:layout_height="wrap_content"
                 android:text="Status:"
                 android:layout_marginTop="10dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_marginLeft="10dp"
+            android:layout_width="fill_parent"
+            android:layout_height="150dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1"
+                android:layout_marginTop="7dp"
+                android:id="@+id/tvMatch_id" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Nguyễn Chánh"
+                android:layout_marginTop="10dp"
+                android:id="@+id/tvMField" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="10:14:49 27/04/2016"
+                android:layout_marginTop="10dp"
+                android:id="@+id/tvEndTime" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="19:00:00 27/04/2016"
+                android:layout_marginTop="10dp"
+                android:id="@+id/tvStartTime" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Not Full"
+                android:layout_marginTop="10dp"
+                android:id="@+id/tvMatch_status" />
         </LinearLayout>
     </LinearLayout>
-
-    <LinearLayout
-        android:orientation="vertical"
-        android:layout_marginLeft="10dp"
-        android:layout_width="fill_parent"
-        android:layout_height="140dp">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="1"
-            android:layout_marginTop="7dp"
-            android:id="@+id/tvMatch_id" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Nguyễn Chánh"
-            android:layout_marginTop="10dp"
-            android:id="@+id/tvMField" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="10:14:49 27/04/2016"
-            android:layout_marginTop="10dp"
-            android:id="@+id/tvEndTime" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="19:00:00 27/04/2016"
-            android:layout_marginTop="10dp"
-            android:id="@+id/tvStartTime" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Đang tuyển người"
-            android:layout_marginTop="10dp"
-            android:id="@+id/tvMatch_status" />
-    </LinearLayout>
-
 
 </LinearLayout>
