@@ -12,9 +12,27 @@ public class Fields {
     private int priceSpecial;
     private int priceNormal;
     private String flagName;
+    private String latitude;
+    private String longtitude;
 
+    public String getLatitude() {
+        return latitude;
+    }
 
-    public  Fields(int id, String name, String address, String phone, int countStadium, int priceSpecial, int priceNormal, String flagName){
+    public void setLatitude(String latitude) {
+        this.latitude = latitude;
+    }
+
+    public String getLongtitude() {
+        return longtitude;
+    }
+
+    public void setLongtitude(String longtitude) {
+        this.longtitude = longtitude;
+    }
+
+    public  Fields(int id, String name, String address, String phone, int countStadium,
+                   int priceSpecial, int priceNormal,  String latitude, String longtitude,String flagName){
         this.id = id;
         this.name = name;
         this.phone = phone;
@@ -23,6 +41,8 @@ public class Fields {
         this.priceNormal = priceNormal;
         this.priceSpecial = priceSpecial;
         this.flagName = flagName;
+        this.longtitude = longtitude;
+        this.latitude = latitude;
     }
     public String getName() {
         return name;

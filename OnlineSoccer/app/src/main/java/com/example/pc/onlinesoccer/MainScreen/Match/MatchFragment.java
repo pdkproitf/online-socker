@@ -9,7 +9,6 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import com.example.pc.onlinesoccer.R;
 import com.firebase.client.ChildEventListener;
@@ -62,7 +61,7 @@ public class MatchFragment extends Fragment {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
                 updateList(dataSnapshot.getKey(), (HashMap) dataSnapshot.getValue(), true);
-                Toast.makeText(getContext(), dataSnapshot.getKey().toString() + "  s=> " + s, Toast.LENGTH_LONG).show();
+                //Toast.makeText(getContext(), dataSnapshot.getKey().toString() + "  s=> " + s, Toast.LENGTH_LONG).show();
             }
 
             @Override
