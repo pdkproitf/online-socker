@@ -4,27 +4,26 @@ package com.example.pc.onlinesoccer.MainScreen.Field;
  * Created by PDKPRO on 27/04/2016.
  */
 public class Fields {
-    private String id,name,distric_id,address,phone;
-    private float latitude,longitude;
+    private int id;
+    private String name;
+    private String address;
+    private String phone;
+    private int countStadium;
+    private int priceSpecial;
+    private int priceNormal;
+    private String flagName;
 
-    public Fields(String id, String name, String distric_id, String address, String phone, float longitude, float latitude) {
+
+    public  Fields(int id, String name, String address, String phone, int countStadium, int priceSpecial, int priceNormal, String flagName){
         this.id = id;
         this.name = name;
-        this.distric_id = distric_id;
-        this.address = address;
         this.phone = phone;
-        this.longitude = longitude;
-        this.latitude = latitude;
+        this.address = address;
+        this.countStadium = countStadium;
+        this.priceNormal = priceNormal;
+        this.priceSpecial = priceSpecial;
+        this.flagName = flagName;
     }
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
     public String getName() {
         return name;
     }
@@ -41,14 +40,6 @@ public class Fields {
         this.address = address;
     }
 
-    public String getDistric_id() {
-        return distric_id;
-    }
-
-    public void setDistric_id(String distric_id) {
-        this.distric_id = distric_id;
-    }
-
     public String getPhone() {
         return phone;
     }
@@ -57,19 +48,43 @@ public class Fields {
         this.phone = phone;
     }
 
-    public float getLatitude() {
-        return latitude;
+    public int getCountStadium() {
+        return countStadium;
     }
 
-    public void setLatitude(float latitude) {
-        this.latitude = latitude;
+    public void setCountStadium(int countStadium) {
+        this.countStadium = countStadium;
     }
 
-    public float getLongitude() {
-        return longitude;
+    public int getPriceSpecial() {
+        return priceSpecial;
     }
 
-    public void setLongitude(float longitude) {
-        this.longitude = longitude;
+    public void setPriceSpecial(int priceSpecial) {
+        this.priceSpecial = priceSpecial;
+    }
+
+    public int getPriceNormal() {
+        return priceNormal;
+    }
+
+    public void setPriceNormal(int priceNormal) {
+        this.priceNormal = priceNormal;
+    }
+
+    public String getFlagName() {
+        return flagName;
+    }
+
+    public void setFlagName(String flagName) {
+        this.flagName = flagName;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }
