@@ -1,13 +1,13 @@
 package com.example.pc.onlinesoccer.MainScreen.Match;
 
 import android.content.Context;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
+import com.example.pc.onlinesoccer.MainScreen.Field.Fields;
 import com.example.pc.onlinesoccer.R;
 
 import java.util.ArrayList;
@@ -19,11 +19,13 @@ public class MatchAdapter extends ArrayAdapter {
     private int resource;
     private LayoutInflater inflater;
     private ArrayList<Matchs> arrMatch;
-    public MatchAdapter(Context context, int resource,ArrayList<Matchs> arrMatch) {
+    private ArrayList<Fields> listField;
+    public MatchAdapter(Context context, int resource,ArrayList<Matchs> arrMatch,ArrayList<Fields> listField) {
         super(context, resource,arrMatch);
         this.inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         this.arrMatch = arrMatch;
         this.resource = resource;
+        this.listField = listField;
     }
 
     @Override
@@ -73,7 +75,7 @@ public class MatchAdapter extends ArrayAdapter {
 
 
         tvMatchId.setText(match.getId());
-        tvField.setText(match.getField_id());
+        tvField.setText(getFieldName(Integer.parseInt(match.getField_id())));
         tvStartTime.setText(match.getStartTime().toString());
         tvEndTime.setText(match.getEndTime().toString());
         tvStatus.setText(((match.getMaxPlayer() - match.getStatus())>0? "blank "+(match.getMaxPlayer() - match.getStatus()):"Full"));
@@ -81,5 +83,12 @@ public class MatchAdapter extends ArrayAdapter {
         return convertView;
     }
 
+    private String getFieldName(int id){
+        for (int i = 0; i < this.listField.size(); i++) {
+            if(this.listField.get(i).getId()==id)
+                return this.listField.get(i).getName();
+        }
+        return "unInvaliable";
+    }
 
 }

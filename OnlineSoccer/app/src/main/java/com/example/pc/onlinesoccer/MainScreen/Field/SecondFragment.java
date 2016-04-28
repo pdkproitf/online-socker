@@ -7,7 +7,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import com.example.pc.onlinesoccer.R;
 import com.firebase.client.ChildEventListener;
@@ -78,7 +77,6 @@ public class SecondFragment extends Fragment {
             int count = Integer.parseInt(hash.get("countStadium").toString());
             int special = Integer.parseInt(hash.get("priceSpecial").toString());
             int normal = Integer.parseInt(hash.get("priceNormal").toString());
-            Toast.makeText(getContext(), hash.get("address").toString(), Toast.LENGTH_SHORT).show();
             Fields fields = new Fields(field_id,hash.get("name").toString(),
                     hash.get("address").toString(),hash.get("phone").toString(),
                     count,special,normal,temp[j]);
