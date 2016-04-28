@@ -14,7 +14,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.pc.onlinesoccer.MainScreen.Match.FirstFragment;
+import com.example.pc.onlinesoccer.MainScreen.Match.MatchFragment;
 import com.example.pc.onlinesoccer.R;
 
 public class TabFragment extends Fragment {
@@ -69,7 +69,7 @@ public class TabFragment extends Fragment {
         public Fragment getItem(int position)
         {
             switch (position){
-                case 0 : return new FirstFragment();
+                case 0 : return new MatchFragment();
                 case 1 : return new SecondFragment();
                 case 2 : return new ThirdFragment();
             }

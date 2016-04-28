@@ -58,7 +58,7 @@ public class MatchAdapter extends ArrayAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         if(convertView==null){
-            convertView = inflater.inflate(R.layout.match_item,parent,false);
+            convertView = inflater.inflate(R.layout.content_match_item,parent,false);
         }
 
         TextView tvMatchId = (TextView) convertView.findViewById(R.id.tvMatch_id);
@@ -70,11 +70,11 @@ public class MatchAdapter extends ArrayAdapter {
         Matchs match = this.arrMatch.get(position);
 
 
-        tvMatchId.setText("Match Id: "+match.getId());
-        tvField.setText("Field   :"+match.getField_id());
-        tvStartTime.setText("Start Time:"+match.getStartTime().toString());
-        tvEndTime.setText("End Time :"+match.getEndTime().toString());
-        tvStatus.setText("Status :"+ (match.getMaxPlayer() - match.getStatus()>0? "notFull":"Full"));
+        tvMatchId.setText(match.getId());
+        tvField.setText(match.getField_id());
+        tvStartTime.setText(match.getStartTime().toString());
+        tvEndTime.setText(match.getEndTime().toString());
+        tvStatus.setText(((match.getMaxPlayer() - match.getStatus())>0? "blank "+(match.getMaxPlayer() - match.getStatus()):"Full"));
 
         return convertView;
     }

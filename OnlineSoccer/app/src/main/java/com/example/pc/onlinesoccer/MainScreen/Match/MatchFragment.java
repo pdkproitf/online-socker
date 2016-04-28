@@ -6,7 +6,10 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.example.pc.onlinesoccer.R;
 import com.firebase.client.ChildEventListener;
@@ -22,29 +25,44 @@ import java.util.HashMap;
  */
 
 
-public class FirstFragment extends Fragment {
+public class MatchFragment extends Fragment {
 
     private Firebase root;
-    private MatchAdapter matchAdapter;
+    private MatchAdapter adapterMatch;
     private ArrayList<Matchs> listMatch;
     private ListView listView;
+    private Button btnCreate;
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        final View view = inflater.inflate(R.layout.match_layout, container, false);
+        final View view = inflater.inflate(R.layout.content_match_layout, container, false);
         root = new Firebase("https://soccernetword.firebaseio.com/Matchs");
 
+        defineComponent(view);
+        handlerFirebaseAction();
+        handlerCreateMatch();
+        handlerViewAction();
+
+        return view;
+    }
+
+    public void defineComponent(View view){
         listView = (ListView) view.findViewById(R.id.lvMatch);
 
-        matchAdapter = new MatchAdapter(view.getContext(),R.layout.match_item,listMatch = new ArrayList<Matchs>());
+        adapterMatch = new MatchAdapter(view.getContext(),R.layout.content_match_item,listMatch = new ArrayList<Matchs>());
 
-        listView.setAdapter(matchAdapter);
-        matchAdapter.notifyDataSetChanged();
+        listView.setAdapter(adapterMatch);
+        adapterMatch.notifyDataSetChanged();
+        //
+        btnCreate = (Button) view.findViewById(R.id.btnCreateMatch);
+    }
 
+    public void handlerFirebaseAction(){
         root.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-                updateList(dataSnapshot.getKey(),(HashMap)dataSnapshot.getValue(),true);
+                updateList(dataSnapshot.getKey(), (HashMap) dataSnapshot.getValue(), true);
+                Toast.makeText(getContext(), dataSnapshot.getKey().toString() + "  s=> " + s, Toast.LENGTH_LONG).show();
             }
 
             @Override
@@ -67,7 +85,25 @@ public class FirstFragment extends Fragment {
 
             }
         });
-        return view;
+    }
+
+    public void handlerViewAction(){
+        this.listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                final DialogMatchDetails dialog = new DialogMatchDetails(getContext(),R.layout.content_match_show_dialog,listMatch.get(position));
+                dialog.show();
+            }
+        });
+    }
+
+    public void handlerCreateMatch(){
+        this.btnCreate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
     }
 
     private void updateList(String match_id,HashMap hashValue,boolean isAdd){
@@ -83,7 +119,7 @@ public class FirstFragment extends Fragment {
                     this.listMatch.remove(matchs);
             }
         }
-        this.matchAdapter.notifyDataSetChanged();
+        this.adapterMatch.notifyDataSetChanged();
     }
 
     private void updateItem(String match_id,HashMap hashValue){
@@ -97,7 +133,7 @@ public class FirstFragment extends Fragment {
                     break;
                 }
             }
-        this.matchAdapter.notifyDataSetChanged();
+        this.adapterMatch.notifyDataSetChanged();
     }
 
 }
