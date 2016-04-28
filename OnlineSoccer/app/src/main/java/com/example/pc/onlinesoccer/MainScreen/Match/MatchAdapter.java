@@ -1,6 +1,7 @@
 package com.example.pc.onlinesoccer.MainScreen.Match;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -66,6 +67,7 @@ public class MatchAdapter extends ArrayAdapter {
         TextView tvStartTime = (TextView) convertView.findViewById(R.id.tvStartTime);
         TextView tvEndTime = (TextView) convertView.findViewById(R.id.tvEndTime);
         TextView tvStatus = (TextView) convertView.findViewById(R.id.tvMatch_status);
+
 
         Matchs match = this.arrMatch.get(position);
 
