@@ -9,27 +9,18 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.pc.onlinesoccer.R;
-import com.firebase.client.Firebase;
-import com.firebase.client.FirebaseError;
 
 /**
  * Created by PDKPRO on 28/04/2016.
  */
 public class DialogMatchDetails extends Dialog {
     private Matchs matchs;
-    private String fieldNamse;
-    private TextView tvHost,tvField,tvStart,tvEndTime,tvMaxP,tvStatus;
-    private CheckBox cb;
-    private String userId;
-    public DialogMatchDetails(Context context,int contentView,Matchs matchs,String fieldNamse,String userId) {
+    public DialogMatchDetails(Context context,int contentView,Matchs matchs) {
         super(context);
         this.setContentView(contentView);
         this.matchs = matchs;
-        this.fieldNamse = fieldNamse;
-        this.userId = userId;
-
         setTitle(matchs.getId()+"");
-        defineComponent();
+        //setDattaToDialog(matchs);
     }
 
     public void handlerButtonAction(){
@@ -37,36 +28,23 @@ public class DialogMatchDetails extends Dialog {
         btnJoin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Firebase rootSlot = new Firebase("https://soccernetword.firebaseio.com/Slots");
-                Slots slots = new Slots(matchs.getId(),userId);
-                rootSlot.push().setValue(slots, new Firebase.CompletionListener() {
-                    @Override
-                    public void onComplete(FirebaseError firebaseError, Firebase firebase) {
-                        if(firebaseError!=null){
-                            Toast.makeText(getContext(),"ERROR",Toast.LENGTH_LONG).show();
-                        }else{
-                            Toast.makeText(getContext(),"SUCCESS",Toast.LENGTH_LONG).show();
-                        }
-                    }
-                });
+                Toast.makeText(getContext(),"da join",Toast.LENGTH_LONG).show();
             }
         });
     }
 
-    public void defineComponent(){
-        tvHost = (TextView) this.findViewById(R.id.tvHostDialog);
-        tvField = (TextView) this.findViewById(R.id.tvFieldDialog);
-        tvStart = (TextView) this.findViewById(R.id.tvStartTimeDialog);
-        tvEndTime = (TextView) this.findViewById(R.id.tvEndTimeDialog);
-        tvMaxP  = (TextView) this.findViewById(R.id.tvMaxPlayerDialog);
-        tvStatus = (TextView) this.findViewById(R.id.tvStatuDialog);
-        cb = (CheckBox) this.findViewById(R.id.cbVerifiedDialog);
-    }
-
     @Override
     public void show() {
+        TextView tvHost = (TextView) this.findViewById(R.id.tvHostDialog);
+        TextView tvField = (TextView) this.findViewById(R.id.tvFieldDialog);
+        TextView tvStart = (TextView) this.findViewById(R.id.tvStartTimeDialog);
+        TextView tvEndTime = (TextView) this.findViewById(R.id.tvEndTimeDialog);
+        TextView tvMaxP  = (TextView) this.findViewById(R.id.tvMaxPlayerDialog);
+        TextView tvStatus = (TextView) this.findViewById(R.id.tvStatuDialog);
+        CheckBox cb = (CheckBox) this.findViewById(R.id.cbVerifiedDialog);
+
         tvHost.setText("pdk");
-        tvField.setText(fieldNamse);
+        tvField.setText(matchs.getField_id());
         tvStart.setText(matchs.getStartTime());
         tvEndTime.setText(matchs.getEndTime());
         tvMaxP.setText(matchs.getMaxPlayer()+"");

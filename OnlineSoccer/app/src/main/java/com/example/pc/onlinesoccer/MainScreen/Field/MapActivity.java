@@ -16,7 +16,7 @@ public class MapActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        longtitude = getIntent().getStringExtra("longtitude");
+//        longtitude = getIntent().getStringExtra("longtitude");
 
         Bundle bundle = new Bundle();
         bundle.putString("longtitude", longtitude);

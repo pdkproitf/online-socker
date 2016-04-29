@@ -46,7 +46,7 @@ public class MapFragment extends Fragment {
         map.getUiSettings().setMyLocationButtonEnabled(false);
         map.setMyLocationEnabled(true);
 
-        String longtitude = this.getArguments().getString("longtitude");
+//        String longtitude = this.getArguments().getString("longtitude");
  //       String latitude = getArguments().getString("latitude");
         // Needs to call MapsInitializer before doing any CameraUpdateFactory calls
         try {
@@ -54,7 +54,7 @@ public class MapFragment extends Fragment {
         } catch (Exception exp) {
             exp.printStackTrace();
         }
-        LatLng latLng = new LatLng(16.25369,Double.parseDouble(longtitude));
+        LatLng latLng = new LatLng(16.25369,105.12345);
        // Updates the location and zoom of the MapView
         //CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(latLng, 10);
         //map.animateCamera(cameraUpdate);

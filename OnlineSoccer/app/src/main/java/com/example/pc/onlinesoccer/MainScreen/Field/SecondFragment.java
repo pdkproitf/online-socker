@@ -77,7 +77,7 @@ public class SecondFragment extends Fragment {
                 Fields currentField = (Fields) fieldAdapter.getItem(position);
                 //Toast.makeText(getContext(), currentField.getLongtitude(), Toast.LENGTH_SHORT).show();
                 Intent myIntent=new Intent(getActivity(), MapActivity.class);
-                myIntent.putExtra("longtitude",currentField.getLongtitude());
+                //myIntent.putExtra("longtitude",currentField.getLongtitude());
                 //myIntent.putExtra("latitude",currentField.getLatitude());
                 startActivity(myIntent);
             }
@@ -97,7 +97,7 @@ public class SecondFragment extends Fragment {
             int normal = Integer.parseInt(hash.get("priceNormal").toString());
             Fields fields = new Fields(field_id,hash.get("name").toString(),
                     hash.get("address").toString(),hash.get("phone").toString(),
-                    count,special,normal,hash.get("latitude").toString(),hash.get("longtitude").toString(),temp[j]);
+                    count,special,normal,temp[j]);
             this.listField.add(fields);
         }else{
             for (Fields fields:this.listField) {
@@ -117,7 +117,7 @@ public class SecondFragment extends Fragment {
         int normal = Integer.parseInt(hash.get("priceNormal").toString());
         Fields fields = new Fields(field_id,hash.get("name").toString(),
                 hash.get("address").toString(),hash.get("phone").toString(),
-                count,special,normal,hash.get("latitude").toString(),hash.get("longtitude").toString(),temp[j]);
+                count,special,normal,temp[j]);
         for (int i = 0; i < this.listField.size(); i++) {
             if (this.listField.get(i).getId() == field_id){
                 this.listField.set(i,fields);
