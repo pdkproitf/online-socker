@@ -1,11 +1,13 @@
 package com.example.pc.onlinesoccer.MainScreen.Field;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.example.pc.onlinesoccer.R;
@@ -35,7 +37,8 @@ public class SecondFragment extends Fragment {
 
         listView = (ListView) view.findViewById(R.id.lvField);
 
-        fieldAdapter = new FieldAdapter(view.getContext(),R.layout.field_item,listField = new ArrayList<Fields>());
+        fieldAdapter = new FieldAdapter(view.
+                getContext(),R.layout.field_item,listField = new ArrayList<Fields>());
 
         listView.setAdapter(fieldAdapter);
         fieldAdapter.notifyDataSetChanged();
@@ -65,9 +68,24 @@ public class SecondFragment extends Fragment {
             public void onCancelled(FirebaseError firebaseError) {
 
             }
+
+        });
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Fields currentField = (Fields) fieldAdapter.getItem(position);
+                //Toast.makeText(getContext(), currentField.getLongtitude(), Toast.LENGTH_SHORT).show();
+                Intent myIntent=new Intent(getActivity(), MapActivity.class);
+                //myIntent.putExtra("longtitude",currentField.getLongtitude());
+                //myIntent.putExtra("latitude",currentField.getLatitude());
+                startActivity(myIntent);
+            }
         });
         return view;
     }
+
+
 
     private void updateList(int field_id,HashMap hash,boolean isAdd){
         if(isAdd){

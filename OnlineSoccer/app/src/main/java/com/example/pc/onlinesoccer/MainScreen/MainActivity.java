@@ -17,7 +17,6 @@ public class MainActivity extends AppCompatActivity{
     NavigationView mNavigationView;
     FragmentManager mFragmentManager;
     FragmentTransaction mFragmentTransaction;
-    private TabFragment tabFragment;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,8 +38,7 @@ public class MainActivity extends AppCompatActivity{
 
         mFragmentManager = getSupportFragmentManager();
         mFragmentTransaction = mFragmentManager.beginTransaction();
-        mFragmentTransaction.replace(R.id.containerView,tabFragment = new TabFragment()).commit();
-        tabFragment.setArguments(extras);
+        mFragmentTransaction.replace(R.id.containerView,new TabFragment()).commit();
         /**
          * Setup click events on the Navigation View Items.
          */

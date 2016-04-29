@@ -23,7 +23,6 @@ public class TabFragment extends Fragment {
     public static TabLayout tabLayout;
     public static ViewPager viewPager;
     public static int int_items = 3 ;
-    private MatchFragment matchFragment;
 
     @Nullable
     @Override
@@ -34,9 +33,6 @@ public class TabFragment extends Fragment {
         View x =  inflater.inflate(R.layout.tab_layout,null);
         tabLayout = (TabLayout) x.findViewById(R.id.tabs);
         viewPager = (ViewPager) x.findViewById(R.id.viewpager);
-
-        matchFragment = new MatchFragment();
-        matchFragment.setArguments(getArguments());
 
         /**
          *Set an Apater for the View Pager
@@ -74,7 +70,7 @@ public class TabFragment extends Fragment {
         public Fragment getItem(int position)
         {
             switch (position){
-                case 0 : return matchFragment;
+                case 0 : return new MatchFragment();
                 case 1 : return new SecondFragment();
                 case 2 : return new ThirdFragment();
             }
@@ -97,9 +93,9 @@ public class TabFragment extends Fragment {
 
             switch (position){
                 case 0 :
-                    return "Match";
+                    return "First";
                 case 1 :
-                    return "Field";
+                    return "Second";
                 case 2 :
                     return "Third";
             }

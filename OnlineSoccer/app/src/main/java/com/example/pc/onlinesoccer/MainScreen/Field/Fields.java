@@ -14,7 +14,10 @@ public class Fields {
     private String flagName;
 
 
-    public  Fields(int id, String name, String address, String phone, int countStadium, int priceSpecial, int priceNormal, String flagName){
+
+
+    public  Fields(int id, String name, String address, String phone, int countStadium,
+                   int priceSpecial, int priceNormal,String flagName){
         this.id = id;
         this.name = name;
         this.phone = phone;
