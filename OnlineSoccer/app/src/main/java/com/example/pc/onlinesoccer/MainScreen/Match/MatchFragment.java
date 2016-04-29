@@ -56,7 +56,7 @@ public class MatchFragment extends Fragment {
         listView = (ListView) view.findViewById(R.id.lvMatch);
 
         listField = new ArrayList<Fields>();
-        adapterMatch = new MatchAdapter(view.getContext(),R.layout.content_match_item,listMatch = new ArrayList<Matchs>(),listField);
+        adapterMatch = new MatchAdapter(view.getContext(),R.layout.content_match_item,listMatch = new ArrayList<Matchs>(), listField);
 
         listView.setAdapter(adapterMatch);
         adapterMatch.notifyDataSetChanged();
@@ -64,12 +64,12 @@ public class MatchFragment extends Fragment {
         btnCreate = (Button) view.findViewById(R.id.btnCreateMatch);
     }
 
-    private void handlerFirebaseAction(){
+    private void handlerFirebaseAction() {
         handlerFieldFirebase();
         handlerMatchFireBase();
     }
 
-    private void handlerMatchFireBase(){
+    private void handlerMatchFireBase() {
         root.child("Matchs").addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {

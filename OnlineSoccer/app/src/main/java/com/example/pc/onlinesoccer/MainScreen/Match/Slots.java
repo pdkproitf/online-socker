@@ -11,8 +11,8 @@ public class Slots {
     public Slots(String match_id, String user_id) {
         this.match_id = match_id;
         this.user_id = user_id;
-        this.quantity = 1;
-        this.verified = false;
+        this.quantity = 10;
+        this.verified = true;
     }
 
     public String getMatch_id() {
