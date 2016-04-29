@@ -10,4 +10,7 @@
     <string name="title_activity_introduce">IntroduceActivity</string>
     <string name="title_activity_dialog_show_match_details">DialogShowMatchDetails</string>
     <string name="title_activity_map">MapActivity</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
