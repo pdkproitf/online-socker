@@ -1,9 +1,11 @@
 package com.example.pc.onlinesoccer.MainScreen.Field;
 
+import java.io.Serializable;
+
 /**
  * Created by PDKPRO on 27/04/2016.
  */
-public class Fields {
+public class Fields implements Serializable{
     private int id;
     private String name;
     private String address;

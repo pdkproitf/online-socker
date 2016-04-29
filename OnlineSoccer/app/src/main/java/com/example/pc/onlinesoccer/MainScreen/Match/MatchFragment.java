@@ -1,5 +1,6 @@
 package com.example.pc.onlinesoccer.MainScreen.Match;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -145,8 +146,12 @@ public class MatchFragment extends Fragment {
         this.btnCreate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                DialogMatchAdd dialogMatchAdd = new DialogMatchAdd(getContext(), R.layout.content_match_add_dialog);
-                dialogMatchAdd.show();
+
+                Intent intent = new Intent(getActivity(),MatchAddActivity.class);
+                Bundle bundle = new Bundle();
+                intent.putExtra("listField", listField);
+                intent.putExtra("uid",userId);
+                startActivity(intent);
             }
         });
     }

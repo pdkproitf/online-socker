@@ -1,68 +1,97 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent"
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginTop="16dp"
-    android:layout_marginLeft="16dp"
-    android:layout_marginRight="16dp"
-    android:background="@drawable/list_selector"
-    android:orientation="horizontal"
-    android:padding="5dp"
-    android:weightSum="1">
+    android:stretchColumns="1">
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+    <TableRow>
+        <TextView
 
-        <LinearLayout
-            android:orientation="vertical"
-            android:layout_width="wrap_content"
-            android:layout_height="263dp">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Field: "
-                android:layout_marginTop="10dp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Start Time: "
-                android:layout_marginTop="30dp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="EndTime: "
-                android:layout_marginTop="30dp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Status:"
-                android:layout_marginTop="30dp" />
-        </LinearLayout>
-    </LinearLayout>
-
-    <LinearLayout
-        android:orientation="vertical"
-        android:layout_marginLeft="10dp"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content">
-
+            android:text="Field: "
+            android:padding="3dip" />
         <Spinner
-            android:layout_width="142dp"
-            android:layout_height="28dp"
-            android:id="@+id/spinner" />
+            android:layout_column="1"
+            android:text="Ctrl-O"
+            android:padding="3dip"
+            android:spinnerMode="dropdown"
+            android:id="@+id/spField" />
+    </TableRow>
 
-        <TimePicker
-            android:layout_width="142dp"
-            android:layout_height="48dp"
-            android:paddingTop="70dp"
-            android:id="@+id/timePicker" />
+    <TableRow>
+        <TextView
 
-    </LinearLayout>
+            android:text="Start Time: "
+            android:padding="3dip" />
+        <EditText android:id="@+id/edtStartDateDialog" />
+        <Button
+            android:text="Get Date"
+            android:id="@+id/btnStartDateDialog" />
+    </TableRow>
 
+    <TableRow>
+        <EditText
+            android:layout_column="1"
+            android:id="@+id/edtStartTimeDialog" />
+        <Button
+            android:text="Get Time"
+            android:id="@+id/btnStartTimeDialog" />
+    </TableRow>
 
-</LinearLayout>
+    <TableRow>
+        <TextView
+
+            android:text="End Time: "
+            android:padding="3dip" />
+        <EditText android:id="@+id/edtEndDateDialog" />
+        <Button
+            android:text="Get Date"
+            android:id="@+id/btnEndDateDialog" />
+    </TableRow>
+
+    <TableRow>
+        <EditText
+            android:layout_column="1"
+            android:id="@+id/edtEndTimeDialog" />
+        <Button
+            android:text="Get Time"
+            android:id="@+id/btnEndTimeDialog" />
+    </TableRow>
+
+    <TableRow>
+        <TextView
+
+            android:text="Max Player: "
+            android:padding="3dip" />
+
+        <SeekBar
+            android:maxHeight="50dp"
+            android:id="@+id/sbMaxPlayer"
+            android:max="15"
+            android:progress="@integer/design_snackbar_text_max_lines"
+            android:indeterminate="false" />
+        <TextView
+            android:id="@+id/edtSeekResult"
+            android:padding="3dip" />
+    </TableRow>
+
+    <TableRow>
+        <Button
+            android:layout_column="1"
+            android:layout_gravity="center"
+            android:background="@color/colorPrimary"
+            android:id="@+id/btnCreateMatch"
+            android:paddingBottom="10dp"
+            android:text="Create"/>
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="1"
+            android:id="@+id/textView2" />
+    </TableRow>
+</TableLayout>

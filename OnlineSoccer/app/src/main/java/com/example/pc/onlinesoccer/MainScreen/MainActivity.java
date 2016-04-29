@@ -61,7 +61,7 @@ public class MainActivity extends AppCompatActivity{
 
                 if (menuItem.getItemId() == R.id.nav_item_setting) {
                     FragmentTransaction xfragmentTransaction = mFragmentManager.beginTransaction();
-                    xfragmentTransaction.replace(R.id.containerView,new TabFragment()).commit();
+                    xfragmentTransaction.replace(R.id.containerView,tabFragment).commit();
                 }
 
                 return false;

@@ -2,6 +2,7 @@ package com.example.pc.onlinesoccer.MainScreen.Match;
 
 import android.app.Dialog;
 import android.content.Context;
+import android.graphics.Color;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -33,10 +34,11 @@ public class DialogMatchDetails extends Dialog {
     }
 
     public void handlerButtonAction(){
-        Button btnJoin = (Button)this.findViewById(R.id.btnJoin);
+        final Button btnJoin = (Button)this.findViewById(R.id.btnJoin);
         btnJoin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                btnJoin.setTextColor(Color.WHITE);
                 Firebase rootSlot = new Firebase("https://soccernetword.firebaseio.com/Slots");
                 Slots slots = new Slots(matchs.getId(),userId);
                 rootSlot.push().setValue(slots, new Firebase.CompletionListener() {
