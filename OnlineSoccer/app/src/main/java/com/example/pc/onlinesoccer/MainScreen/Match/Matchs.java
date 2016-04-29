@@ -1,9 +1,11 @@
 package com.example.pc.onlinesoccer.MainScreen.Match;
 
+import java.io.Serializable;
+
 /**
  * Created by PDKPRO on 27/04/2016.
  */
-public class Matchs {
+public class Matchs implements Serializable{
     private String id, field_id,host_id,startTime,endTime;
     private int maxPlayer,status;
     private boolean verified;

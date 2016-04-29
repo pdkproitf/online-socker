@@ -24,7 +24,7 @@ import java.util.Random;
  * Created by PC on 20-Apr-16.
  */
 
-public class SecondFragment extends Fragment {
+public class FieldFragment extends Fragment {
     private Firebase root;
     private FieldAdapter fieldAdapter;
     private ArrayList<Fields> listField;

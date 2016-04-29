@@ -8,6 +8,13 @@ public class Slots {
     private int quantity;
     private boolean verified;
 
+    public Slots(String match_id, String user_id) {
+        this.match_id = match_id;
+        this.user_id = user_id;
+        this.quantity = 10;
+        this.verified = true;
+    }
+
     public String getMatch_id() {
         return match_id;
     }

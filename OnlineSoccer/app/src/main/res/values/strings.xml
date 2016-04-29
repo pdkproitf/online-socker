@@ -9,5 +9,6 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="title_activity_introduce">IntroduceActivity</string>
     <string name="title_activity_dialog_show_match_details">DialogShowMatchDetails</string>
+    <string name="title_activity_match_add">MatchAdd</string>
     <string name="title_activity_map">MapActivity</string>
 </resources>

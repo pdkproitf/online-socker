@@ -46,6 +46,9 @@
             android:value="AIzaSyC08oT1WkRV-Ht4a6g9GcrJ6lWJzVtf-UQ" />
 
         <activity
+            android:name=".MainScreen.Match.MatchAddActivity"
+            android:theme="@style/Theme.AppCompat.Light.Dialog"></activity>
+        <activity
             android:name=".MainScreen.Field.MapActivity"
             android:label="@string/title_activity_map"
             android:theme="@style/AppTheme"></activity>
