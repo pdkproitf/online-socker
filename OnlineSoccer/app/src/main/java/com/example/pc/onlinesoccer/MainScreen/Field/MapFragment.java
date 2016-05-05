@@ -26,6 +26,7 @@ public class MapFragment extends Fragment {
     GoogleMap map;
     //Khai báo Progress Bar dialog để làm màn hình chờ
     ProgressDialog myProgress;
+    String longtitude;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.map_layout, container, false);
@@ -46,7 +47,8 @@ public class MapFragment extends Fragment {
         map.getUiSettings().setMyLocationButtonEnabled(false);
         map.setMyLocationEnabled(true);
 
-//        String longtitude = this.getArguments().getString("longtitude");
+        //longtitude = this.getArguments().get("longtitude");
+
  //       String latitude = getArguments().getString("latitude");
         // Needs to call MapsInitializer before doing any CameraUpdateFactory calls
         try {
@@ -54,14 +56,14 @@ public class MapFragment extends Fragment {
         } catch (Exception exp) {
             exp.printStackTrace();
         }
-        LatLng latLng = new LatLng(16.25369,105.12345);
+        LatLng latLng = new LatLng(Double.parseDouble(this.getArguments().get("latitude").toString()),Double.parseDouble(this.getArguments().get("longtitude").toString()));
        // Updates the location and zoom of the MapView
         //CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(latLng, 10);
         //map.animateCamera(cameraUpdate);
 
         CameraPosition cameraPosition = new CameraPosition.Builder()
                 .target(latLng)      // Sets the center of the map to location user
-                .zoom(15)                   // Sets the zoom
+                .zoom(10)                   // Sets the zoom
                 .bearing(90)                // Sets the orientation of the camera to east
                 .tilt(40)                   // Sets the tilt of the camera to 30 degrees
                 .build();                   // Creates a CameraPosition from the builder
