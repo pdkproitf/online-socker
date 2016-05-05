@@ -194,9 +194,11 @@ public class MatchFragment extends Fragment {
             int count = Integer.parseInt(hash.get("countStadium").toString());
             int special = Integer.parseInt(hash.get("priceSpecial").toString());
             int normal = Integer.parseInt(hash.get("priceNormal").toString());
+            double latitude = Double.parseDouble(hash.get("latitude").toString());
+            double longtitude = Double.parseDouble(hash.get("longtitude").toString());
             Fields fields = new Fields(field_id,hash.get("name").toString(),
                     hash.get("address").toString(),hash.get("phone").toString(),
-                    count,special,normal,temp[j]);
+                    count,special,normal,temp[j],latitude, longtitude);
             this.listField.add(fields);
         }else{
             for (Fields fields:this.listField) {
@@ -213,9 +215,11 @@ public class MatchFragment extends Fragment {
         int count = Integer.parseInt(hash.get("countStadium").toString());
         int special = Integer.parseInt(hash.get("priceSpecial").toString());
         int normal = Integer.parseInt(hash.get("priceNormal").toString());
+        double latitude = Double.parseDouble(hash.get("latitude").toString());
+        double longtitude = Double.parseDouble(hash.get("longtitude").toString());
         Fields fields = new Fields(field_id,hash.get("name").toString(),
                 hash.get("address").toString(),hash.get("phone").toString(),
-                count,special,normal,temp[j]);
+                count,special,normal,temp[j],latitude, longtitude);
         for (int i = 0; i < this.listField.size(); i++) {
             if (this.listField.get(i).getId() == field_id){
                 this.listField.set(i,fields);

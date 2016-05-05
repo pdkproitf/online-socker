@@ -47,11 +47,12 @@
 
         <activity
             android:name=".MainScreen.Match.MatchAddActivity"
-            android:theme="@style/Theme.AppCompat.Light.Dialog"></activity>
+            android:theme="@style/Theme.AppCompat.Light.Dialog" />
         <activity
             android:name=".MainScreen.Field.MapActivity"
             android:label="@string/title_activity_map"
-            android:theme="@style/AppTheme"></activity>
+            android:theme="@style/AppTheme" />
+        <activity android:name=".MainScreen.Field.Main2Activity"></activity>
     </application>
 
 </manifest>

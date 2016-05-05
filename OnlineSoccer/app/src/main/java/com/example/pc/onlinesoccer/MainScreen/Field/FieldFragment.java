@@ -76,15 +76,15 @@ public class FieldFragment extends Fragment {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Fields currentField = (Fields) fieldAdapter.getItem(position);
                 //Toast.makeText(getContext(), currentField.getLongtitude(), Toast.LENGTH_SHORT).show();
-                Intent myIntent=new Intent(getActivity(), MapActivity.class);
-                //myIntent.putExtra("longtitude",currentField.getLongtitude());
-                //myIntent.putExtra("latitude",currentField.getLatitude());
+                Intent myIntent=new Intent(getActivity(), Main2Activity.class);
+                myIntent.putExtra("longtitude",currentField.getLongtitude());
+                myIntent.putExtra("latitude",currentField.getLatitude());
+
                 startActivity(myIntent);
             }
         });
         return view;
     }
-
 
 
     private void updateList(int field_id,HashMap hash,boolean isAdd){
@@ -95,9 +95,11 @@ public class FieldFragment extends Fragment {
             int count = Integer.parseInt(hash.get("countStadium").toString());
             int special = Integer.parseInt(hash.get("priceSpecial").toString());
             int normal = Integer.parseInt(hash.get("priceNormal").toString());
+            double latitude = Double.parseDouble(hash.get("latitude").toString());
+            double longtitude = Double.parseDouble(hash.get("longtitude").toString());
             Fields fields = new Fields(field_id,hash.get("name").toString(),
                     hash.get("address").toString(),hash.get("phone").toString(),
-                    count,special,normal,temp[j]);
+                    count,special,normal,temp[j],latitude, longtitude);
             this.listField.add(fields);
         }else{
             for (Fields fields:this.listField) {
@@ -115,9 +117,11 @@ public class FieldFragment extends Fragment {
         int count = Integer.parseInt(hash.get("countStadium").toString());
         int special = Integer.parseInt(hash.get("priceSpecial").toString());
         int normal = Integer.parseInt(hash.get("priceNormal").toString());
+        double latitude = Double.parseDouble(hash.get("latitude").toString());
+        double longtitude = Double.parseDouble(hash.get("longtitude").toString());
         Fields fields = new Fields(field_id,hash.get("name").toString(),
                 hash.get("address").toString(),hash.get("phone").toString(),
-                count,special,normal,temp[j]);
+                count,special,normal,temp[j],latitude, longtitude);
         for (int i = 0; i < this.listField.size(); i++) {
             if (this.listField.get(i).getId() == field_id){
                 this.listField.set(i,fields);

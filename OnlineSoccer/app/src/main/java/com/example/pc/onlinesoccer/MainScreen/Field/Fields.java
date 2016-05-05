@@ -15,11 +15,30 @@ public class Fields implements Serializable{
     private int priceNormal;
     private String flagName;
 
+    public double getLatitude() {
+        return latitude;
+    }
+
+    public void setLatitude(double latitude) {
+        this.latitude = latitude;
+    }
+
+    public double getLongtitude() {
+        return longtitude;
+    }
+
+    public void setLongtitude(double longtitude) {
+        this.longtitude = longtitude;
+    }
+
+    private double latitude;
+    private double longtitude;
+
 
 
 
     public  Fields(int id, String name, String address, String phone, int countStadium,
-                   int priceSpecial, int priceNormal,String flagName){
+                   int priceSpecial, int priceNormal,String flagName, double latitude, double longtitude ){
         this.id = id;
         this.name = name;
         this.phone = phone;
@@ -28,6 +47,8 @@ public class Fields implements Serializable{
         this.priceNormal = priceNormal;
         this.priceSpecial = priceSpecial;
         this.flagName = flagName;
+        this.latitude = latitude;
+        this.longtitude = longtitude;
     }
     public String getName() {
         return name;
