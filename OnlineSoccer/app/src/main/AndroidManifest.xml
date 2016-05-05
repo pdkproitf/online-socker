@@ -43,7 +43,7 @@
             android:value="@integer/google_play_services_version" />
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyC08oT1WkRV-Ht4a6g9GcrJ6lWJzVtf-UQ" />
+            android:value="AIzaSyAZB2D9Q0u5EzMEh0iOMrFlv0o6iBktaKw" />
 
         <activity
             android:name=".MainScreen.Match.MatchAddActivity"
