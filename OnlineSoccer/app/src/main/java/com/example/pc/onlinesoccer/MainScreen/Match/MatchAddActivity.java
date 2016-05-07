@@ -5,6 +5,7 @@ import android.app.TimePickerDialog;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -40,7 +41,8 @@ public class MatchAddActivity extends AppCompatActivity implements View.OnClickL
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_match_add);
+        this.requestWindowFeature(Window.FEATURE_NO_TITLE); //before
+        this.setContentView(R.layout.activity_match_add);
         getArguments();
 
         defineComponent();
@@ -205,7 +207,7 @@ public class MatchAddActivity extends AppCompatActivity implements View.OnClickL
 
     private String getFieldId(String name){
         for (int i =0; i<listField.size(); i++)
-            if(listField.get(i).getName().equals("name"))
+            if(listField.get(i).getName().equals(name))
                 return listField.get(i).getId()+"";
         return "11";
     }

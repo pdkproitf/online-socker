@@ -1,11 +1,13 @@
 package com.example.pc.onlinesoccer.MainScreen.Match;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.pc.onlinesoccer.MainScreen.Field.Fields;
 import com.example.pc.onlinesoccer.R;
@@ -65,7 +67,7 @@ public class MatchAdapter extends ArrayAdapter {
         }
 
         TextView tvMatchId = (TextView) convertView.findViewById(R.id.tvMatch_id);
-        TextView tvField = (TextView) convertView.findViewById(R.id.tvMField);
+        TextView tvField = (TextView) convertView.findViewById(R.id.tvField);
         TextView tvStartTime = (TextView) convertView.findViewById(R.id.tvStartTime);
         TextView tvEndTime = (TextView) convertView.findViewById(R.id.tvEndTime);
         TextView tvStatus = (TextView) convertView.findViewById(R.id.tvMatch_status);
@@ -73,6 +75,8 @@ public class MatchAdapter extends ArrayAdapter {
 
         Matchs match = this.arrMatch.get(position);
 
+        //Toast.makeText(getContext(),match.getId(),Toast.LENGTH_LONG).show();
+        Log.v("match = > ",match.getId());
 
         tvMatchId.setText(match.getId());
         tvField.setText(getFieldName(Integer.parseInt(match.getField_id())));

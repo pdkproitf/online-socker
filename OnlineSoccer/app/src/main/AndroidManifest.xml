@@ -43,15 +43,17 @@
             android:value="@integer/google_play_services_version" />
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyC08oT1WkRV-Ht4a6g9GcrJ6lWJzVtf-UQ" />
+            android:value="AIzaSyAZB2D9Q0u5EzMEh0iOMrFlv0o6iBktaKw" />
 
         <activity
             android:name=".MainScreen.Match.MatchAddActivity"
-            android:theme="@style/Theme.AppCompat.Light.Dialog"></activity>
+            android:label=""
+            android:theme="@style/Theme.AppCompat.DayNight.Dialog" />
         <activity
             android:name=".MainScreen.Field.MapActivity"
             android:label="@string/title_activity_map"
-            android:theme="@style/AppTheme"></activity>
+            android:theme="@style/AppTheme" />
+        <activity android:name=".MainScreen.Field.Main2Activity"></activity>
     </application>
 
 </manifest>

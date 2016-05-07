@@ -61,7 +61,7 @@
                 android:layout_marginTop="30dp"
                 android:text="LOGIN"
                 android:textStyle="bold"
-                android:textColor="#FFFFFF"
+                android:textColor="@color/color_text_button"
                 android:textSize="25dp"
                 android:background="#f33c53"
                 android:paddingBottom="5dp"/>
@@ -71,7 +71,7 @@
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="No account yet? Create one"
-                android:textColor="#FFFFFF"
+                android:textColor="@color/color_text_button"
                 android:paddingTop="16dp"
                 android:id="@+id/txvGoToRegister"
                 android:layout_gravity="center_horizontal" />

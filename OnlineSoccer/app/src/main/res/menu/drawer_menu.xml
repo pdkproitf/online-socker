@@ -3,18 +3,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <item android:title="Index"
+        android:id="@+id/nav_item_index"
+        android:icon="@drawable/ic_stadium"/>
     <item android:title="Profile"
         android:id="@+id/nav_item_profile"
         android:icon="@drawable/icon_profile"/>
 
-    <group android:id="@+id/group_settings_id">
 
-        <item android:title="Settings"
-            android:id="@+id/nav_item_setting"
-            android:icon="@drawable/icon_setting"/>
-        <item android:title="Help"
-            android:id="@+id/nav_item_help"
-            android:icon="@drawable/icon_help"/>
-    </group>
+        <item android:title="About us"
+            android:id="@+id/nav_item_about"
+            android:icon="@drawable/info"/>
 
 </menu>

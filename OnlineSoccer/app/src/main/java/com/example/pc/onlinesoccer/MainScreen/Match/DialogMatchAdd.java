@@ -33,7 +33,6 @@ public class DialogMatchAdd extends Dialog{
         super(context);
         this.lisedteld = lisedteld;
         setContentView(contentView);
-        setTitle("new Match");
         defineComponent();
         setComponentValue();
         handleAction();

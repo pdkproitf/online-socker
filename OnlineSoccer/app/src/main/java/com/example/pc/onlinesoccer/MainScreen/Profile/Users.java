@@ -4,7 +4,7 @@ package com.example.pc.onlinesoccer.MainScreen.Profile;
  * Created by PDKPRO on 22/04/2016.
  */
 public class Users {
-    private String name,mail,date,imageStr,phone;
+    private String name,mail,date,imageStr,phone,id;
     public Users() {
     }
 
@@ -14,6 +14,19 @@ public class Users {
         this.date = date;
         this.imageStr = imageStr;
         this.phone = phone;
+    }
+
+    public Users( String id,String name) {
+        this.name = name;
+        this.id = id;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getPhone() {

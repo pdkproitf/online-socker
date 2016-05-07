@@ -2,18 +2,18 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="match_parent"
-    android:layout_marginTop="16dp"
     android:layout_marginLeft="16dp"
     android:layout_marginRight="16dp"
     android:orientation="horizontal"
-    android:weightSum="1">
+    android:background="@drawable/list_selector"
+    android:weightSum="2">
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:background="@drawable/list_selector">
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
 
         <ImageView
+            android:layout_marginTop="10dp"
             android:layout_width="76dp"
             android:layout_height="140dp"
             android:layout_marginRight="10dp"
@@ -23,6 +23,8 @@
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:layout_marginTop="10dp"
             android:layout_height="140dp">
 
             <TextView
@@ -35,7 +37,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Field: "
-                android:layout_marginTop="10dp" />
+                android:layout_marginTop="10dp"
+                android:id="@+id/tvMatch_field" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -60,7 +63,9 @@
     <LinearLayout
         android:orientation="vertical"
         android:layout_marginLeft="10dp"
-        android:layout_width="fill_parent"
+        android:layout_marginBottom="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_width="wrap_content"
         android:layout_height="140dp">
 
         <TextView
@@ -75,7 +80,7 @@
             android:layout_height="wrap_content"
             android:text="Nguyễn Chánh"
             android:layout_marginTop="10dp"
-            android:id="@+id/tvMField" />
+            android:id="@+id/tvField" />
 
         <TextView
             android:layout_width="wrap_content"

@@ -16,7 +16,7 @@ public class MapActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-//        longtitude = getIntent().getStringExtra("longtitude");
+        longtitude = getIntent().getStringExtra("longtitude");
 
         Bundle bundle = new Bundle();
         bundle.putString("longtitude", longtitude);
@@ -26,12 +26,12 @@ public class MapActivity extends AppCompatActivity {
         MapFragment fragobj = new MapFragment();
         fragobj.setArguments(bundle);
 
+        //getFragmentManager().beginTransaction().replace(R.id.containerView)
     }
 
     @Override
     protected void onStart() {
         super.onStart();
-
 
     }
 }

@@ -8,4 +8,8 @@
     <color name="white">#FFF</color>
     <color name="redpink">#f33c53</color>
     <color name="dark">#274164</color>
+
+    <color name="color_bar_dialog">#f33c53</color>
+    <color name="color_background_button">#3498db</color>
+    <color name="color_text_button">#FFFFFF</color>
 </resources>

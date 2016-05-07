@@ -13,9 +13,9 @@ import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import com.example.pc.onlinesoccer.MainScreen.Match.MatchFragment;
-import com.example.pc.onlinesoccer.MainScreen.Field.FieldFragment;
 
+import com.example.pc.onlinesoccer.MainScreen.Field.FieldFragment;
+import com.example.pc.onlinesoccer.MainScreen.Match.MatchFragment;
 import com.example.pc.onlinesoccer.R;
 
 public class TabFragment extends Fragment {
@@ -101,7 +101,7 @@ public class TabFragment extends Fragment {
                 case 1 :
                     return "Field";
                 case 2 :
-                    return "Third";
+                    return "Map";
             }
             return null;
         }
