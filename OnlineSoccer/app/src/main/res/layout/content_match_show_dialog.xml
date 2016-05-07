@@ -1,23 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
+    android:layout_width="350dp"
     android:layout_height="match_parent"
-    android:layout_marginTop="16dp"
-    android:layout_marginLeft="16dp"
-    android:layout_marginRight="16dp"
     android:orientation="vertical"
     android:weightSum="1">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="vertical">
+
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
         android:text="MATCH INFORMATION"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="5dp"
+        android:textStyle="bold"
         android:textSize="20dp"
-
-        android:layout_gravity="center"/>
-
+        android:textColor="@color/color_text_button"
+        android:background="@color/color_bar_dialog"
+        android:gravity="center"/>
+    </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -30,48 +32,63 @@
             <LinearLayout
                 android:orientation="vertical"
                 android:layout_width="wrap_content"
-                android:layout_height="200dp">
+                android:layout_height="250dp"
+                android:layout_marginRight="10dp">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Host Name: "
+                    android:fontFamily="sans-serif-medium"
+                    android:textSize="17dp"
                     android:layout_marginTop="10dp" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Field: "
+                    android:fontFamily="sans-serif-medium"
+                    android:textSize="17dp"
                     android:layout_marginTop="10dp" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Start Time: "
+                    android:fontFamily="sans-serif-medium"
+                    android:textSize="17dp"
                     android:layout_marginTop="10dp" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="EndTime: "
+                    android:fontFamily="sans-serif-medium"
+                    android:textSize="17dp"
                     android:layout_marginTop="10dp" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Max Player:"
+                    android:fontFamily="sans-serif-medium"
+                    android:textSize="17dp"
                     android:layout_marginTop="10dp" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Status: "
+                    android:fontFamily="sans-serif-medium"
+                    android:textSize="17dp"
                     android:layout_marginTop="10dp" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Verified: "
+                    android:fontFamily="sans-serif-medium"
+                    android:textSize="17dp"
                     android:layout_marginTop="10dp" />
             </LinearLayout>
 
@@ -80,12 +97,14 @@
                 android:orientation="vertical"
                 android:layout_marginLeft="10dp"
                 android:layout_width="wrap_content"
-                android:layout_height="200dp">
+                android:layout_height="255dp">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Phuc"
+                    android:fontFamily="sans-serif"
+                    android:textSize="17dp"
                     android:layout_marginTop="10dp"
                     android:id="@+id/tvHostDialog" />
 
@@ -93,6 +112,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Nguyễn Chánh"
+                    android:fontFamily="sans-serif"
+                    android:textSize="17dp"
                     android:layout_marginTop="10dp"
                     android:id="@+id/tvFieldDialog" />
 
@@ -100,6 +121,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="10:34 27/04/2016"
+                    android:fontFamily="sans-serif"
+                    android:textSize="17dp"
                     android:layout_marginTop="10dp"
                     android:id="@+id/tvStartTimeDialog" />
 
@@ -107,6 +130,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="19:00 27/04/2016"
+                    android:fontFamily="sans-serif"
+                    android:textSize="17dp"
                     android:layout_marginTop="10dp"
                     android:id="@+id/tvEndTimeDialog" />
 
@@ -114,6 +139,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="12"
+                    android:fontFamily="sans-serif"
+                    android:textSize="17dp"
                     android:layout_marginTop="10dp"
                     android:id="@+id/tvMaxPlayerDialog" />
 
@@ -121,6 +148,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="10"
+                    android:fontFamily="sans-serif"
+                    android:textSize="17dp"
                     android:layout_marginTop="10dp"
                     android:id="@+id/tvStatuDialog" />
 
@@ -128,6 +157,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/cbVerifiedDialog"
+                    android:layout_marginTop="5dp"
+                    android:gravity="bottom"
                     android:checked="true"
                     android:enabled="false" />
 
@@ -137,12 +168,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:background="#02ffe4"
+            android:background="@drawable/bg_button"
             android:shadowColor="#0256ff"
             android:text="Join"
             android:layout_margin="10dp"
             android:id="@+id/btnJoin" />
-
-    </LinearLayout>
 </LinearLayout>
+    </LinearLayout>
 

@@ -4,6 +4,7 @@ import android.app.Dialog;
 import android.content.Context;
 import android.graphics.Color;
 import android.view.View;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.TextView;
@@ -22,14 +23,13 @@ public class DialogMatchDetails extends Dialog {
     private TextView tvHost,tvField,tvStart,tvEndTime,tvMaxP,tvStatus;
     private CheckBox cb;
     private String userId;
-    public DialogMatchDetails(Context context,int contentView,Matchs matchs,String fieldNamse,String userId) {
+    public DialogMatchDetails(Context context,Matchs matchs,String fieldNamse,String userId) {
         super(context);
-        this.setContentView(contentView);
+        this.requestWindowFeature(Window.FEATURE_NO_TITLE); //before
+        this.setContentView(R.layout.content_match_show_dialog);
         this.matchs = matchs;
         this.fieldNamse = fieldNamse;
         this.userId = userId;
-
-        setTitle(matchs.getId()+"");
         defineComponent();
     }
 
@@ -67,7 +67,7 @@ public class DialogMatchDetails extends Dialog {
 
     @Override
     public void show() {
-        tvHost.setText("pdk");
+        tvHost.setText(userId);
         tvField.setText(fieldNamse);
         tvStart.setText(matchs.getStartTime());
         tvEndTime.setText(matchs.getEndTime());

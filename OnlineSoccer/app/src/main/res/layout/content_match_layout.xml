@@ -7,11 +7,15 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Create a Match"
+        android:layout_marginTop="7dp"
+        android:layout_marginBottom="7dp"
+        android:text="Create A Match"
+        android:textStyle="bold"
+        android:textColor="@color/color_text_button"
         android:id="@+id/btnCreateMatch"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:background="#022aff" />
+        android:background="@drawable/bg_button" />
 
     <ListView
         android:layout_width="match_parent"

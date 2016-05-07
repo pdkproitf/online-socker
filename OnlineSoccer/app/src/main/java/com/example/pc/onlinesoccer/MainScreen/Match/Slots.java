@@ -4,15 +4,28 @@ package com.example.pc.onlinesoccer.MainScreen.Match;
  * Created by PDKPRO on 27/04/2016.
  */
 public class Slots {
-    private String match_id,user_id;
+    private String id,match_id,user_id;
     private int quantity;
     private boolean verified;
+
+    public Slots(String id,String match_id,int quantity) {
+        this.match_id = match_id;
+        this.id = id;
+        this.quantity = quantity;
+        this.verified = true;
+    }
 
     public Slots(String match_id, String user_id) {
         this.match_id = match_id;
         this.user_id = user_id;
-        this.quantity = 10;
-        this.verified = true;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getMatch_id() {

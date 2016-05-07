@@ -12,6 +12,7 @@ import android.widget.Button;
 import android.widget.ListView;
 
 import com.example.pc.onlinesoccer.MainScreen.Field.Fields;
+import com.example.pc.onlinesoccer.MainScreen.Profile.Users;
 import com.example.pc.onlinesoccer.R;
 import com.firebase.client.ChildEventListener;
 import com.firebase.client.DataSnapshot;
@@ -33,6 +34,8 @@ public class MatchFragment extends Fragment {
     private MatchAdapter adapterMatch;
     private ArrayList<Matchs> listMatch;
     private ArrayList<Fields> listField;
+    private ArrayList<Users> listUser;
+    private ArrayList<Slots> listSlot;
     private ListView listView;
     private Button btnCreate;
     private String userId;
@@ -56,6 +59,8 @@ public class MatchFragment extends Fragment {
         listView = (ListView) view.findViewById(R.id.lvMatch);
 
         listField = new ArrayList<Fields>();
+        listUser = new ArrayList<Users>();
+        listSlot = new ArrayList<Slots>();
         adapterMatch = new MatchAdapter(view.getContext(),R.layout.content_match_item,listMatch = new ArrayList<Matchs>(), listField);
 
         listView.setAdapter(adapterMatch);
@@ -67,6 +72,7 @@ public class MatchFragment extends Fragment {
     private void handlerFirebaseAction() {
         handlerFieldFirebase();
         handlerMatchFireBase();
+        handlerUserFirebase();
     }
 
     private void handlerMatchFireBase() {
@@ -129,14 +135,71 @@ public class MatchFragment extends Fragment {
         });
     }
 
+    private void handlerUserFirebase(){
+        root.child("Profiles").addChildEventListener(new ChildEventListener() {
+            @Override
+            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+                updateUserList(dataSnapshot.getKey().toString(), (HashMap) dataSnapshot.getValue(), true);
+            }
+
+            @Override
+            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+                updateUserItem(dataSnapshot.getKey().toString(), (HashMap) dataSnapshot.getValue());
+            }
+
+            @Override
+            public void onChildRemoved(DataSnapshot dataSnapshot) {
+                updateUserList(dataSnapshot.getKey().toString(), (HashMap) dataSnapshot.getValue(), false);
+            }
+
+            @Override
+            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
+    }
+
+    private void handlerSlotFirebase(){
+        root.child("Slots").addChildEventListener(new ChildEventListener() {
+            @Override
+            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+                updateUserList(dataSnapshot.getKey().toString(), (HashMap) dataSnapshot.getValue(), true);
+            }
+
+            @Override
+            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+                updateUserItem(dataSnapshot.getKey().toString(), (HashMap) dataSnapshot.getValue());
+            }
+
+            @Override
+            public void onChildRemoved(DataSnapshot dataSnapshot) {
+                updateUserList(dataSnapshot.getKey().toString(), (HashMap) dataSnapshot.getValue(), false);
+            }
+
+            @Override
+            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
+    }
+
     private void handlerViewAction(){
         this.listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                final DialogMatchDetails dialog = new DialogMatchDetails(getContext(),
-                        R.layout.content_match_show_dialog, listMatch.get(position),
+                final DialogMatchDetails dialog = new DialogMatchDetails(getContext(), listMatch.get(position),
                         getFieldName(Integer.parseInt(listMatch.get(position).getField_id())),
-                        userId);
+                        getUserName(listMatch.get(position).getHost_id()));
                 dialog.show();
             }
         });
@@ -147,10 +210,10 @@ public class MatchFragment extends Fragment {
             @Override
             public void onClick(View v) {
 
-                Intent intent = new Intent(getActivity(),MatchAddActivity.class);
+                Intent intent = new Intent(getActivity(), MatchAddActivity.class);
                 Bundle bundle = new Bundle();
                 intent.putExtra("listField", listField);
-                intent.putExtra("uid",userId);
+                intent.putExtra("uid", userId);
                 startActivity(intent);
             }
         });
@@ -228,10 +291,71 @@ public class MatchFragment extends Fragment {
         }
     }
 
+    private void updateUserList(String userId,HashMap hashValue,boolean isAdd){
+        if(isAdd){
+            Users user = new Users(userId,hashValue.get("name").toString());
+            this.listUser.add(user);
+        }else{
+            for (Users users:this.listUser) {
+                if(users.getId().equals(userId))
+                    this.listMatch.remove(userId);
+            }
+        }
+        this.adapterMatch.notifyDataSetChanged();
+    }
+
+    private void updateUserItem(String userId,HashMap hashValue){
+        Users  users = new Users(userId,hashValue.get("name").toString());
+        for (int i = 0; i < this.listUser.size(); i++) {
+            if (this.listUser.get(i).getId().equals(userId)){
+                this.listUser.set(i,users);
+                break;
+            }
+        }
+        this.adapterMatch.notifyDataSetChanged();
+    }
+
+    private void updateSlotList(String id,HashMap hashValue,boolean isAdd) {
+        if (isAdd) {
+            Slots slots = new Slots(id,hashValue.get("match_id").toString(),(int)hashValue.get("quantity"));
+            this.listSlot.add(slots);
+        } else {
+            for (Slots slots : this.listSlot) {
+                if (slots.getId().equals(id))
+                    this.listSlot.remove(id);
+            }
+        }
+        this.adapterMatch.notifyDataSetChanged();
+    }
+
+    private void updateSlotInMatchList(Slots slots,boolean isAdd){
+        for (Matchs match:listMatch) {
+            if(match.getId().equals(slots.getMatch_id())){
+                if(isAdd){
+                    int status = match.getStatus() + slots.getQuantity();
+                    match.setStatus(status);
+                }else{
+                    int status = match.getStatus() - slots.getQuantity();
+                    match.setStatus(status);
+                }
+                break;
+            }
+        }
+        this.adapterMatch.notifyDataSetChanged();
+    }
+
+
     private String getFieldName(int id){
         for (int i =0; i<listField.size(); i++)
             if(listField.get(i).getId()==id)
                 return listField.get(i).getName();
+        return id+"";
+    }
+
+    private String getUserName(String id){
+        for (int i =0; i<listUser.size(); i++)
+            if(listUser.get(i).getId().equals(id))
+                return listUser.get(i).getName();
         return id+"";
     }
 
