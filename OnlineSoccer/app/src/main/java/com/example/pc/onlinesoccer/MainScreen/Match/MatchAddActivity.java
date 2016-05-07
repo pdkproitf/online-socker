@@ -191,6 +191,7 @@ public class MatchAddActivity extends AppCompatActivity implements View.OnClickL
         Matchs matchs = new Matchs("10",getFieldId(field_name),user_id,sbMaxPlayer.getProgress(),
                 1,edtStartTimeDg.getText().toString()+" "+edtStartDateDg.getText().toString(),
                 edtEndTimeDg.getText().toString()+" "+edtEndDateDg.getText().toString(),false);
+
         Firebase matchBranch = new Firebase("https://soccernetword.firebaseio.com/Matchs/");
         matchBranch.push().setValue(matchs, new Firebase.CompletionListener() {
             @Override
