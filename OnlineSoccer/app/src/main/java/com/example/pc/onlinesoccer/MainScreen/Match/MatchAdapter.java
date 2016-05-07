@@ -75,7 +75,7 @@ public class MatchAdapter extends ArrayAdapter {
 
         Matchs match = this.arrMatch.get(position);
 
-        //Toast.makeText(getContext(),match.getId(),Toast.LENGTH_LONG).show();
+        Toast.makeText(getContext(),match.getId(),Toast.LENGTH_LONG).show();
         Log.v("match = > ",match.getId());
 
         tvMatchId.setText(match.getId());

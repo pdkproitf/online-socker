@@ -15,6 +15,11 @@ public class Slots {
         this.verified = true;
     }
 
+    public Slots(String match_id, String user_id) {
+        this.match_id = match_id;
+        this.user_id = user_id;
+    }
+
     public String getId() {
         return id;
     }
