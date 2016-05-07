@@ -73,6 +73,33 @@ public class MatchFragment extends Fragment {
         handlerFieldFirebase();
         handlerMatchFireBase();
         handlerUserFirebase();
+        handlerSlotFirebase();
+    }
+
+    private void handlerViewAction(){
+        this.listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                final DialogMatchDetails dialog = new DialogMatchDetails(getContext(), listMatch.get(position),
+                        getFieldName(Integer.parseInt(listMatch.get(position).getField_id())),
+                        getUserName(listMatch.get(position).getHost_id()));
+                dialog.show();
+            }
+        });
+    }
+
+    private void handlerCreateMatch(){
+        this.btnCreate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(getActivity(), MatchAddActivity.class);
+                Bundle bundle = new Bundle();
+                intent.putExtra("listField", listField);
+                intent.putExtra("uid", userId);
+                startActivity(intent);
+            }
+        });
     }
 
     private void handlerMatchFireBase() {
@@ -104,7 +131,6 @@ public class MatchFragment extends Fragment {
             }
         });
     }
-
 
     private void handlerFieldFirebase(){
         root.child("Fields").addChildEventListener(new ChildEventListener() {
@@ -168,17 +194,17 @@ public class MatchFragment extends Fragment {
         root.child("Slots").addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-                updateUserList(dataSnapshot.getKey().toString(), (HashMap) dataSnapshot.getValue(), true);
+                updateSlotList(dataSnapshot.getKey(), (HashMap) dataSnapshot.getValue(), true);
             }
 
             @Override
             public void onChildChanged(DataSnapshot dataSnapshot, String s) {
-                updateUserItem(dataSnapshot.getKey().toString(), (HashMap) dataSnapshot.getValue());
+                //updateSlotList(dataSnapshot.getKey(),(HashMap)dataSnapshot.getValue(),true);
             }
 
             @Override
             public void onChildRemoved(DataSnapshot dataSnapshot) {
-                updateUserList(dataSnapshot.getKey().toString(), (HashMap) dataSnapshot.getValue(), false);
+                updateSlotList(dataSnapshot.getKey(), (HashMap) dataSnapshot.getValue(), true);
             }
 
             @Override
@@ -189,32 +215,6 @@ public class MatchFragment extends Fragment {
             @Override
             public void onCancelled(FirebaseError firebaseError) {
 
-            }
-        });
-    }
-
-    private void handlerViewAction(){
-        this.listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                final DialogMatchDetails dialog = new DialogMatchDetails(getContext(), listMatch.get(position),
-                        getFieldName(Integer.parseInt(listMatch.get(position).getField_id())),
-                        getUserName(listMatch.get(position).getHost_id()));
-                dialog.show();
-            }
-        });
-    }
-
-    private void handlerCreateMatch(){
-        this.btnCreate.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                Intent intent = new Intent(getActivity(), MatchAddActivity.class);
-                Bundle bundle = new Bundle();
-                intent.putExtra("listField", listField);
-                intent.putExtra("uid", userId);
-                startActivity(intent);
             }
         });
     }
@@ -316,16 +316,16 @@ public class MatchFragment extends Fragment {
     }
 
     private void updateSlotList(String id,HashMap hashValue,boolean isAdd) {
+        Slots slots = new Slots(id,hashValue.get("match_id").toString(),Integer.parseInt(hashValue.get("quantity").toString()));
         if (isAdd) {
-            Slots slots = new Slots(id,hashValue.get("match_id").toString(),(int)hashValue.get("quantity"));
             this.listSlot.add(slots);
         } else {
-            for (Slots slots : this.listSlot) {
-                if (slots.getId().equals(id))
+            for (Slots slot : this.listSlot) {
+                if (slot.getId().equals(id))
                     this.listSlot.remove(id);
             }
         }
-        this.adapterMatch.notifyDataSetChanged();
+        updateSlotInMatchList(slots,isAdd);
     }
 
     private void updateSlotInMatchList(Slots slots,boolean isAdd){
@@ -343,7 +343,6 @@ public class MatchFragment extends Fragment {
         }
         this.adapterMatch.notifyDataSetChanged();
     }
-
 
     private String getFieldName(int id){
         for (int i =0; i<listField.size(); i++)
